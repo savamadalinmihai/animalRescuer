@@ -7,6 +7,6 @@ public class Food {
     String name;
     short price;
     double quantity;
-    String expiryDate;
+    Date expiryDate;
     boolean inStock;
 }

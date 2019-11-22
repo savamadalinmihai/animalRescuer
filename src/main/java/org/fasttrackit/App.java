@@ -24,10 +24,11 @@ public class App
         Adopter Adopter01 = new Adopter();
         Adopter01.name = "Simina";
         Adopter01.moneyAvailable = 325;
+        Adopter01.dollarSign = "$";
 
         Food Food01 = new Food();
         Food01.name = "Whiskas";
-        Food01.expiryDate = "2020-12-10";
+        Food01.expiryDate = new Date(2019, 11, 11);
         Food01.inStock = true;
         Food01.price = 25;
         Food01.quantity = 2.5;
@@ -42,14 +43,16 @@ public class App
         Vet01.specialisation = "dogs";
 
 
-        System.out.println("The animal's name is " + Animal01.name);
-        System.out.println("The animal's age is " + Animal01.age);
-        System.out.println("The animal likes " + Animal01.favoriteActivity);
-        System.out.println("The animal's favorite food is " + Animal01.favoriteFood);
-        System.out.println("Happiness level is " + Animal01.happinessLevel + "/10.");
-        System.out.println("Hunger level is " + Animal01.hunger + "/10.");
-        System.out.println("Health level is " +  Animal01.health + "/10.");
-        System.out.println("That's our first animal.");
+//        System.out.println("The animal's name is " + Animal01.name);
+//        System.out.println("The animal's age is " + Animal01.age);
+//        System.out.println("The animal likes " + Animal01.favoriteActivity);
+//        System.out.println("The animal's favorite food is " + Animal01.favoriteFood);
+//        System.out.println("Happiness level is " + Animal01.happinessLevel + "/10.");
+//        System.out.println("Hunger level is " + Animal01.hunger + "/10.");
+//        System.out.println("Health level is " +  Animal01.health + "/10.");
+//        System.out.println("That's our first animal.");
+
+        System.out.println(Adopter01.name + " has " + Adopter01.moneyAvailable + Adopter01.dollarSign + " left.");
 
 
 
