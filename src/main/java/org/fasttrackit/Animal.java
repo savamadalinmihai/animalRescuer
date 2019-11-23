@@ -4,8 +4,8 @@ public class Animal {
 
     String name;
     byte age;
-    double health;
-    double hunger;
+    double healthLevel;
+    boolean hungerLevel;
     double happinessLevel;
     String favoriteFood;
     String favoriteActivity;
