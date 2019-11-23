@@ -1,5 +1,7 @@
 package org.fasttrackit;
 
+// Aici am importat 2 librarii Java pentru a putea reprezenta timpul.
+
 import java.time.Instant;
 import java.util.Date;
 
@@ -18,8 +20,8 @@ public class App
         Animal01.favoriteActivity = "Meowing.";
         Animal01.favoriteFood = "Wet food.";
         Animal01.happinessLevel = 10;
-        Animal01.hunger = 4;
-        Animal01.health = 9.5;
+        Animal01.hungerLevel = 4;
+        Animal01.healthLevel = 9.5;
 
         Adopter Adopter01 = new Adopter();
         Adopter01.name = "Simina";
@@ -33,32 +35,16 @@ public class App
         Food01.price = 25;
         Food01.quantity = 2.5;
 
-        Game Game01 = new Game();
-        Game01.adopter = "Simina";
-        Game01.animal = "dog";
-        Game01.veterinarian = "Madalin";
+//        Game Game01 = new Game();
+//        Game01.adopter = "Simina";
+//        Game01.animal = "dog";
+//        Game01.veterinarian = "Madalin";
 
         Veterinarian Vet01 = new Veterinarian();
         Vet01.name = "Madalin";
         Vet01.specialisation = "dogs";
 
-
-//        System.out.println("The animal's name is " + Animal01.name);
-//        System.out.println("The animal's age is " + Animal01.age);
-//        System.out.println("The animal likes " + Animal01.favoriteActivity);
-//        System.out.println("The animal's favorite food is " + Animal01.favoriteFood);
-//        System.out.println("Happiness level is " + Animal01.happinessLevel + "/10.");
-//        System.out.println("Hunger level is " + Animal01.hunger + "/10.");
-//        System.out.println("Health level is " +  Animal01.health + "/10.");
-//        System.out.println("That's our first animal.");
-
         System.out.println(Adopter01.name + " has " + Adopter01.moneyAvailable + Adopter01.dollarSign + " left.");
-
-
-
-
-
-
 
     }
 
