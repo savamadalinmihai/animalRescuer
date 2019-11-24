@@ -4,6 +4,12 @@ package org.fasttrackit;
 
 public class Animal {
 
+    public Animal(String name, boolean hasAnOwner) {
+        this.name = name;
+        this.hasAnOwner = hasAnOwner;
+
+    }
+
     String name;
     byte age;
     double healthLevel;

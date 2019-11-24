@@ -7,12 +7,17 @@ package org.fasttrackit;
 import java.util.Date;
 
 public class Food {
-    public Food() {
+
+    public Food(String name, int price) {
         this.name = name;
+        this.price = price;
     }
+
     String name;
-    short price;
+    int price;
     double quantity;
     Date expiryDate;
     boolean inStock;
+
 }
+

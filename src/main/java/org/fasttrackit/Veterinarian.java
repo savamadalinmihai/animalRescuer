@@ -5,4 +5,8 @@ package org.fasttrackit;
 public class Veterinarian extends MedicalStaff {
 
     String somethingIdk;
+
+    public Veterinarian(String name, String specialisation) {
+        super(name, specialisation);
+    }
 }

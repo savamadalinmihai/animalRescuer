@@ -4,6 +4,13 @@ package org.fasttrackit;
 
 public class Activities {
 
+    public Activities(String name, double happinessIncrease, double energySpent) {
+        this.name = name;
+        this.happinessIncrease = happinessIncrease;
+        this.energySpent = energySpent;
+
+    }
+
     String name;
     double happinessIncrease;
     double energySpent;

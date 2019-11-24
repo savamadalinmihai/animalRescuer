@@ -9,4 +9,7 @@ public class Dog extends Animal {
     boolean needsAWalk;
 
 
+    public Dog(String name, boolean hasAnOwner) {
+        super(name, hasAnOwner);
+    }
 }

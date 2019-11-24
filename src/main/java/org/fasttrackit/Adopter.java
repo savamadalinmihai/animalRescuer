@@ -4,8 +4,14 @@ package org.fasttrackit;
 
 public class Adopter {
 
+    public Adopter(String name, int age) {
+        this.name = name;
+        this.age = age;
+
+    }
+
     String name;
-    byte age;
+    int age;
     int gender;
     String occupation;
     String allergicTo;

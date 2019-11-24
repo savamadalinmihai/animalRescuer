@@ -10,12 +10,10 @@ public class App
     public static void main( String[] args )
     {
 
-        Activities Activity01 = new Activities();
-        Activity01.name = "Fetch";
+        Activities Activity01 = new Activities("Fetch", 15, 3);
         Activity01.happinessIncrease = 2.5;
 
-        Animal Animal01 = new Animal();
-        Animal01.name = "Cat";
+        Animal Animal01 = new Animal("cat", false);
         Animal01.age = 3;
         Animal01.favoriteActivity = "Meowing.";
         Animal01.favoriteFood = "Wet food.";
@@ -23,13 +21,12 @@ public class App
         Animal01.hungerLevel = 4;
         Animal01.healthLevel = 9.5;
 
-        Adopter Adopter01 = new Adopter();
+        Adopter Adopter01 = new Adopter("Simina", 5);
         Adopter01.name = "Simina";
         Adopter01.moneyAvailable = 325;
         Adopter01.dollarSign = "$";
 
-        Food Food01 = new Food();
-        Food01.name = "Whiskas";
+        Food Food01 = new Food("Whiskas", 125);
         Food01.expiryDate = new Date(2019, 11, 11);
         Food01.inStock = true;
         Food01.price = 25;

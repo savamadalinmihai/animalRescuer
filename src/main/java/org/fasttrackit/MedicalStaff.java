@@ -4,6 +4,12 @@ package org.fasttrackit;
 
 public class MedicalStaff {
 
+    public MedicalStaff(String name, String specialisation) {
+        this.name = name;
+        this.specialisation = specialisation;
+
+    }
+
     String name;
     String specialisation;
     Boolean isBusy;
