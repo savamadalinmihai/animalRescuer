@@ -16,6 +16,9 @@ public class MedicalStaff {
     private int costInDollars;
     private int costInMinutes;
 
+    public MedicalStaff() {
+            }
+
 
     public String getName() {
         return name;
