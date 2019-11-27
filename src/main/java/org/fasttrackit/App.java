@@ -11,26 +11,26 @@ public class App
     {
 
         Activities Activity01 = new Activities("Fetch", 15, 3);
-        Activity01.happinessIncrease = 2.5;
+        Activity01.setHappinessIncrease(2.5);
 
         Animal Animal01 = new Animal("cat", false);
-        Animal01.age = 3;
-        Animal01.favoriteActivity = "Meowing.";
-        Animal01.favoriteFood = "Wet food.";
-        Animal01.happinessLevel = 10;
-        Animal01.hungerLevel = 4;
-        Animal01.healthLevel = 9.5;
+        Animal01.setAge(3);
+        Animal01.setFavoriteActivity("Meowing.");
+        Animal01.setFavoriteFood("Wet food.");
+        Animal01.setHappinessLevel(10);
+        Animal01.setHungerLevel(4);
+        Animal01.setHealthLevel(9.5);
 
         Adopter Adopter01 = new Adopter("Simina", 5);
-        Adopter01.name = "Simina";
-        Adopter01.moneyAvailable = 325;
-        Adopter01.dollarSign = "$";
+        Adopter01.setName("Simina");
+        Adopter01.setMoneyAvailable(325);
+        Adopter01.setDollarSign("$");
 
         Food Food01 = new Food("Whiskas", 125);
-        Food01.expiryDate = new Date(2019, 11, 11);
-        Food01.inStock = true;
-        Food01.price = 25;
-        Food01.quantity = 2.5;
+        Food01.setExpiryDate(new Date(2020, 12, 12));
+        Food01.setInStock(true);
+        Food01.setPrice(25);
+        Food01.setQuantity(2.5);
 
 //        Game Game01 = new Game();
 //        Game01.adopter = "Simina";
@@ -38,10 +38,11 @@ public class App
 //        Game01.veterinarian = "Madalin";
 
         Veterinarian Vet01 = new Veterinarian();
-        Vet01.name = "Madalin";
-        Vet01.specialisation = "dogs";
+        Vet01.setName("Madalin");
+        Vet01.setSpecialisation("Dogs");
 
-        System.out.println(Adopter01.name + " has " + Adopter01.moneyAvailable + Adopter01.dollarSign + " left.");
+        System.out.println(Adopter01.getName() + " has "
+                + Adopter01.getMoneyAvailable() + Adopter01.getDollarSign() + " left.");
 
     }
 

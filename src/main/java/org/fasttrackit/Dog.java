@@ -4,12 +4,36 @@ package org.fasttrackit;
 
 public class Dog extends Animal {
 
-    String dogBreed;
-    boolean bites;
-    boolean needsAWalk;
+    private String dogBreed;
+    private boolean bites;
+    private boolean needsAWalk;
 
 
     public Dog(String name, boolean hasAnOwner) {
         super(name, hasAnOwner);
+    }
+
+    public String getDogBreed() {
+        return dogBreed;
+    }
+
+    public void setDogBreed(String dogBreed) {
+        this.dogBreed = dogBreed;
+    }
+
+    public boolean isBites() {
+        return bites;
+    }
+
+    public void setBites(boolean bites) {
+        this.bites = bites;
+    }
+
+    public boolean isNeedsAWalk() {
+        return needsAWalk;
+    }
+
+    public void setNeedsAWalk(boolean needsAWalk) {
+        this.needsAWalk = needsAWalk;
     }
 }
