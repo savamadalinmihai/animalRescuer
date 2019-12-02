@@ -2,24 +2,25 @@ package org.fasttrackit;
 
 public class Game {
 
-    Adopter adopter1 = new Adopter("Radu", 15);
-
     public Game(String name, int durationInMinutes, boolean toysRequired) {
         this.name = name;
         this.durationInMinutes = durationInMinutes;
         this.toysRequired = toysRequired;
     }
 
+    Rescuer rescuer1 = new Rescuer();
+
+
     private String name;
     private int durationInMinutes;
     private boolean toysRequired;
 
-    public Adopter getAdopter1() {
-        return adopter1;
+    public Rescuer getRescuer1() {
+        return rescuer1;
     }
 
-    public void setAdopter1(Adopter adopter1) {
-        this.adopter1 = adopter1;
+    public void setRescuer1(Rescuer rescuer1) {
+        this.rescuer1 = rescuer1;
     }
 
     public String getName() {

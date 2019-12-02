@@ -20,10 +20,9 @@ public class App
         Animal01.setHungerLevel(4);
         Animal01.setHealthLevel(9.5);
 
-        Adopter Adopter01 = new Adopter("Simina", 5);
-        Adopter01.setName("Simina");
-        Adopter01.setMoneyAvailable(325);
-        Adopter01.setDollarSign("$");
+        Rescuer rescuer01 = new Rescuer("Simina", 5);
+        rescuer01.setMoneyAvailable(325);
+        rescuer01.setDollarSign("$");
 
         Food Food01 = new Food("Whiskas", 125);
         Food01.setExpiryDate(new Date(2020, 12, 12));
@@ -40,8 +39,8 @@ public class App
         Vet01.setName("Madalin");
         Vet01.setSpecialisation("Dogs");
 
-        System.out.println(Adopter01.getName() + " has "
-                + Adopter01.getMoneyAvailable() + Adopter01.getDollarSign() + " left.");
+        System.out.println(rescuer01.getName() + " has "
+                + rescuer01.getMoneyAvailable() + rescuer01.getDollarSign() + " left.");
 
     }
 

@@ -2,17 +2,20 @@ package org.fasttrackit;
 
 // Aici avem caracteristicile adoptatorului.
 
-public class Adopter {
+public class Rescuer {
 
-    public Adopter(String name, int age) {
+    public Rescuer(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public Rescuer(){
 
     }
 
     private String name;
     private int age;
-    private int gender;
+    private String gender;
     private String occupation;
     private String allergicTo;
     private double moneyAvailable;
@@ -34,11 +37,11 @@ public class Adopter {
         this.age = age;
     }
 
-    public int getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
