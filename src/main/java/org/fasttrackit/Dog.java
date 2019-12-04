@@ -36,4 +36,6 @@ public class Dog extends Animal {
     public void setNeedsAWalk(boolean needsAWalk) {
         this.needsAWalk = needsAWalk;
     }
+
+
 }

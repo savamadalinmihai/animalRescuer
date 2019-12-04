@@ -9,7 +9,7 @@ public class Rescuer {
         this.age = age;
     }
 
-    public Rescuer(){
+    public Rescuer() {
 
     }
 
@@ -76,4 +76,29 @@ public class Rescuer {
     public void setDollarSign(String dollarSign) {
         this.dollarSign = dollarSign;
     }
+
+//    This method allows you to feed the animal, which decreases its hunger level
+//    and in turn it also decreases the food quantity.
+
+    public void feedAnimal(Animal animal, Food food) {
+        System.out.println(this.getName() + " just gave " + animal.getName() + " some " + food.getName());
+
+        animal.setHungerLevel(animal.getHungerLevel() - 1);
+
+        System.out.println("The new hunger level of the animal is: " + animal.getHungerLevel());
+
+
+        if (food.getName().equals(animal.getFavoriteFood())) {
+
+            animal.setHungerLevel(animal.getHungerLevel() - 2);
+        } else {
+            animal.setHungerLevel(animal.getHungerLevel() - 1);
+
+        }
+
+        System.out.println(this.getName() + "just fed " + animal.getName() + " with " + food.getName());
+    }
 }
+
+
+

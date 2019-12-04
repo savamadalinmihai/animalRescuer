@@ -5,7 +5,7 @@ package org.fasttrackit;
 public class Animal {
 
     public Animal(String name, boolean hasAnOwner) {
-        this.name = name;
+        this.name = name; // this is a constructor
         this.hasAnOwner = hasAnOwner;
 
     }
@@ -19,6 +19,7 @@ public class Animal {
     private boolean hasAnOwner;
     private String favoriteFood;
     private String favoriteActivity;
+
 
     public String getName() {
         return name;
@@ -91,4 +92,10 @@ public class Animal {
     public void setFavoriteActivity(String favoriteActivity) {
         this.favoriteActivity = favoriteActivity;
     }
+
+
+    public void showHappiness(){
+        System.out.println(getName() + " is happy, ");
+    }
+
 }

@@ -2,18 +2,20 @@ package org.fasttrackit;
 
 public class Game {
 
+    private String name;
+    private int durationInMinutes;
+    private boolean toysRequired;
+
+    Rescuer rescuer1 = new Rescuer();
+    Dog dog;
+    Veterinarian veterinarian;
+
+
     public Game(String name, int durationInMinutes, boolean toysRequired) {
         this.name = name;
         this.durationInMinutes = durationInMinutes;
         this.toysRequired = toysRequired;
     }
-
-    Rescuer rescuer1 = new Rescuer();
-
-
-    private String name;
-    private int durationInMinutes;
-    private boolean toysRequired;
 
     public Rescuer getRescuer1() {
         return rescuer1;

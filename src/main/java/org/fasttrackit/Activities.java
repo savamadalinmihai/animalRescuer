@@ -11,6 +11,13 @@ public class Activities {
     private int costInDollars;
     private String dollarSign;
 
+    public Activities(String name, double happinessIncrease, double energySpent) {
+        this.name = name;
+        this.happinessIncrease = happinessIncrease;
+        this.energySpent = energySpent;
+
+    }
+
     public String getName() {
         return name;
     }
@@ -59,10 +66,4 @@ public class Activities {
         this.dollarSign = dollarSign;
     }
 
-    public Activities(String name, double happinessIncrease, double energySpent) {
-        this.name = name;
-        this.happinessIncrease = happinessIncrease;
-        this.energySpent = energySpent;
-
-    }
 }

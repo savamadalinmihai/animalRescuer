@@ -14,10 +14,10 @@ public class App
 
         Animal Animal01 = new Animal("cat", false);
         Animal01.setAge(3);
-        Animal01.setFavoriteActivity("Meowing.");
-        Animal01.setFavoriteFood("Wet food.");
+        Animal01.setFavoriteActivity("Meowing");
+        Animal01.setFavoriteFood("Whiskas");
         Animal01.setHappinessLevel(10);
-        Animal01.setHungerLevel(4);
+        Animal01.setHungerLevel(10.0);
         Animal01.setHealthLevel(9.5);
 
         Rescuer rescuer01 = new Rescuer("Simina", 5);
@@ -30,10 +30,6 @@ public class App
         Food01.setPrice(25);
         Food01.setQuantity(2.5);
 
-//        Game Game01 = new Game();
-//        Game01.adopter = "Simina";
-//        Game01.animal = "dog";
-//        Game01.veterinarian = "Madalin";
 
         Veterinarian Vet01 = new Veterinarian();
         Vet01.setName("Madalin");
@@ -41,6 +37,9 @@ public class App
 
         System.out.println(rescuer01.getName() + " has "
                 + rescuer01.getMoneyAvailable() + rescuer01.getDollarSign() + " left.");
+
+        Rescuer rescuer = new Rescuer();
+        rescuer.feedAnimal(Animal01, Food01);
 
     }
 
