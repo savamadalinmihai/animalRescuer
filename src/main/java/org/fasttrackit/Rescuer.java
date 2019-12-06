@@ -80,7 +80,7 @@ public class Rescuer {
 //    This method allows you to feed the animal, which decreases its hunger level
 //    and in turn it also decreases the food quantity.
 
-    public void feedAnimal(Animal animal, Food food) {
+    public void feedAnimal(Rescuer rescuer, Animal animal, Food food) {
         System.out.println(this.getName() + " just gave " + animal.getName() + " some " + food.getName());
 
         animal.setHungerLevel(animal.getHungerLevel() - 1);
@@ -96,7 +96,7 @@ public class Rescuer {
 
         }
 
-        System.out.println(this.getName() + "just fed " + animal.getName() + " with " + food.getName());
+        System.out.println(rescuer.getName() + "just fed " + animal.getName() + " with " + food.getName());
     }
 }
 

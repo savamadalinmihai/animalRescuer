@@ -39,7 +39,7 @@ public class App
                 + rescuer01.getMoneyAvailable() + rescuer01.getDollarSign() + " left.");
 
         Rescuer rescuer = new Rescuer();
-        rescuer.feedAnimal(Animal01, Food01);
+        rescuer.feedAnimal(rescuer01, Animal01, Food01);
 
     }
 
