@@ -10,11 +10,13 @@ public class App
     {
 
         Activities Activity01 = new Activities("Fetch", 15, 3);
-        Activity01.setHappinessIncrease(2.5);
+        Activity01.setEnergySpent(1);
+
+        Activities activities1 = new Activities("Sleeping", 10, -4);
 
         Animal Animal01 = new Animal("cat", false);
         Animal01.setAge(3);
-        Animal01.setFavoriteActivity("Meowing");
+        Animal01.setFavoriteActivity("Sleeping");
         Animal01.setFavoriteFood("Whiskas");
         Animal01.setHappinessLevel(10);
         Animal01.setHungerLevel(10.0);
@@ -38,8 +40,12 @@ public class App
         System.out.println(rescuer01.getName() + " has "
                 + rescuer01.getMoneyAvailable() + rescuer01.getDollarSign() + " left.");
 
-        Rescuer rescuer = new Rescuer();
-        rescuer.feedAnimal(rescuer01, Animal01, Food01);
+//        Rescuer rescuer = new Rescuer();
+//        rescuer.feedAnimal(rescuer01, Animal01, Food01);
+
+        Activities activities = new Activities();
+        activities.playWithAnimal(rescuer01, Animal01, activities1);
+
 
     }
 
