@@ -91,9 +91,9 @@ public class Rescuer {
         if (food.getName().equals(animal.getFavoriteFood())) {
 
             animal.setHungerLevel(animal.getHungerLevel() - 2);
+            animal.setHappinessLevel(animal.getHappinessLevel() + 1);
         } else {
             animal.setHungerLevel(animal.getHungerLevel() - 1);
-
         }
 
         System.out.println(rescuer.getName() + "just fed " + animal.getName() + " with " + food.getName());

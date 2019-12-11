@@ -45,6 +45,7 @@ public class App
 
         Activities activities = new Activities();
         activities.playWithAnimal(rescuer01, Animal01, activities1);
+        rescuer01.feedAnimal(rescuer01, Animal01, Food01);
 
 
     }
