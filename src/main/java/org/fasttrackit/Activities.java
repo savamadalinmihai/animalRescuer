@@ -72,19 +72,4 @@ public class Activities {
         this.dollarSign = dollarSign;
     }
 
-    public void playWithAnimal (Rescuer rescuer01, Animal animal, Activities Activity01){
-        System.out.println("Playing " + Activity01.getName() + " with " + animal.getName());
-
-        if (Activity01.getName().equals(animal.getFavoriteActivity())) {
-
-            animal.setHappinessLevel(animal.getHappinessLevel() + 2);
-            animal.setEnergyLevel(animal.getEnergyLevel() + 2);
-        }else {
-            animal.setHappinessLevel(animal.getHappinessLevel() + 1);
-            animal.setEnergyLevel(animal.getEnergyLevel() + 1);
-        }
-
-        System.out.println("The new energy level of the " + animal.getName() + " is: " + animal.getEnergyLevel() +
-                " and the new happiness level is: " +animal.getHappinessLevel());
-    }
 }

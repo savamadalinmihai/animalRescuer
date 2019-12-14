@@ -6,7 +6,7 @@ public class Game {
     private int durationInMinutes;
     private boolean toysRequired;
 
-    Rescuer rescuer1 = new Rescuer();
+    Rescuer rescuer;
     Dog dog;
     Veterinarian veterinarian;
 
@@ -17,12 +17,12 @@ public class Game {
         this.toysRequired = toysRequired;
     }
 
-    public Rescuer getRescuer1() {
-        return rescuer1;
+    public Rescuer getRescuer() {
+        return rescuer;
     }
 
-    public void setRescuer1(Rescuer rescuer1) {
-        this.rescuer1 = rescuer1;
+    public void setRescuer(Rescuer rescuer) {
+        this.rescuer = rescuer;
     }
 
     public String getName() {

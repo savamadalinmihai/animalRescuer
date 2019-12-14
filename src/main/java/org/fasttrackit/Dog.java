@@ -37,5 +37,9 @@ public class Dog extends Animal {
         this.needsAWalk = needsAWalk;
     }
 
+    public void showHappiness(Animal animal){
+        System.out.println(animal.getName() + " is happy, so it is wagging its tail.");
+    }
+
 
 }

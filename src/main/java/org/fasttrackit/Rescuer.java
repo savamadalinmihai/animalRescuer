@@ -13,6 +13,10 @@ public class Rescuer {
 
     }
 
+    Rescuer rescuer;
+    Animal animal;
+    Activities activity;
+
     private String name;
     private int age;
     private String gender;
@@ -20,6 +24,10 @@ public class Rescuer {
     private String allergicTo;
     private double moneyAvailable;
     private String dollarSign;
+
+    public void sout(){
+        System.out.println(rescuer.getName());
+    }
 
     public String getName() {
         return name;
@@ -83,10 +91,7 @@ public class Rescuer {
     public void feedAnimal(Rescuer rescuer, Animal animal, Food food) {
         System.out.println(this.getName() + " just gave " + animal.getName() + " some " + food.getName());
 
-        animal.setHungerLevel(animal.getHungerLevel() - 1);
-
-        System.out.println("The new hunger level of the animal is: " + animal.getHungerLevel());
-
+        rescuer.setMoneyAvailable(getMoneyAvailable()-food.getPrice());
 
         if (food.getName().equals(animal.getFavoriteFood())) {
 
@@ -96,8 +101,26 @@ public class Rescuer {
             animal.setHungerLevel(animal.getHungerLevel() - 1);
         }
 
-        System.out.println(rescuer.getName() + "just fed " + animal.getName() + " with " + food.getName());
+        System.out.println("The new hunger level of the animal is: " + animal.getHungerLevel());
+
     }
+
+    public void playWithAnimal (Animal animal, Activities activities){
+        System.out.println(this.getName() + " is playing " + activities.getName() + " with " + animal.getName());
+
+        if (activities.getName().equals(animal.getFavoriteActivity())) {
+
+            animal.setHappinessLevel(animal.getHappinessLevel() + 2);
+            animal.setEnergyLevel(animal.getEnergyLevel() + 2);
+        }else {
+            animal.setHappinessLevel(animal.getHappinessLevel() + 1);
+            animal.setEnergyLevel(animal.getEnergyLevel() + 1);
+        }
+
+        System.out.println("The new energy level of the " + animal.getName() + " is: " + animal.getEnergyLevel() +
+                " and the new happiness level is: " +animal.getHappinessLevel());
+    }
+
 }
 
 
