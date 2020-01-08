@@ -98,11 +98,5 @@ public class Animal {
         System.out.println(animal.getName() + " is happy, ");
     }
 
-//    În proiectul AnimalRescuer, în clasa Animal, creați o metodă prin care să se afișeze în consolă
-//    un mesaj din care să se deducă starea de spirit pozitivă a animalului. Apoi suprascrieți această metodă în fiecare
-//    sub-clasă a clasei Animal, așa încât mesajul să fie relevant pentru fiecare specie în parte (de exmplu, un câine ar da din
-//    coadă, o pisică ar toarce, etc.).
-//
-//    Apelați aceste metode din metoda main pentru a vedea rezultatul.
 
 }

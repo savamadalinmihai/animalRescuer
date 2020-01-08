@@ -14,7 +14,7 @@ public class App
 
         Activities activities1 = new Activities("Sleeping", 10, -4);
 
-        Animal Animal01 = new Animal("Standard Animal", false);
+        Animal Animal01 = new Cat("Standard Animal", false);
         Animal01.setAge(3);
         Animal01.setFavoriteActivity("Sleeping");
         Animal01.setFavoriteFood("Whiskas");
@@ -22,7 +22,7 @@ public class App
         Animal01.setHungerLevel(10.0);
         Animal01.setHealthLevel(9.5);
 
-        Animal Animal02 = new Animal("dog", false);
+        Animal Animal02 = new Dog("dog", false);
         Animal02.setAge(4);
         Animal02.setFavoriteActivity("Fetch");
         Animal02.setFavoriteFood("Purina");
@@ -65,12 +65,12 @@ public class App
 
         System.out.println();
 
-        Cat cat = new Cat("Baast", false);
+        Animal cat = new Cat("Baast", false);
         cat.showHappiness(cat);
 
         System.out.println();
 
-        Dog dog = new Dog("Lulu", false);
+        Animal dog = new Dog("Lulu", false);
         dog.showHappiness(dog);
 
 
