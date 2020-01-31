@@ -5,6 +5,7 @@ package org.fasttrackit;
 // o noua instanta a obiectului Food. Spre exemplu, nu putem avea un nou tip de mancare fara sa ii dam nume.
 
 import java.util.Date;
+import java.util.Scanner;
 
 public class Food {
 
@@ -18,6 +19,10 @@ public class Food {
     private double quantity;
     private Date expiryDate;
     private boolean inStock;
+
+    public Food() {
+
+    }
 
     public String getName() {
         return name;

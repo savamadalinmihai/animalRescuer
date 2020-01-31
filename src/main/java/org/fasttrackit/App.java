@@ -1,7 +1,5 @@
 package org.fasttrackit;
 
-// Aici am importat 2 librarii Java pentru a putea reprezenta timpul.
-
 import java.util.Date;
 
 public class App
