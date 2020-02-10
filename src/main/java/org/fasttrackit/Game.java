@@ -26,6 +26,31 @@ public class Game {
 
     }
 
+    private void initAnimal(){
+        Animal animal = new Dog("Bonnie", false);
+        dog.setBites(false);
+        dog.setNeedsAWalk(true);
+    }
+
+    private void initRescuer(){
+        System.out.println("Please enter the name of your rescuer character:");
+
+        Scanner scanner = new Scanner(System.in);
+        String rescuerName = scanner.nextLine();
+
+        if (rescuerName.isEmpty()){
+        System.out.println("You entered nothing. Try again.");
+        initRescuer();
+        }
+
+        Rescuer rescuer = new Rescuer();
+        rescuer.setName(rescuerName);
+    }
+
+    private void nameAnimal(){
+        
+    }
+
     private void initFood() {
         // this method initialises the Food ArrayList.
         int numberOfFoods = getNumberOfFoods();
@@ -139,6 +164,7 @@ public class Game {
     public void start() {
         //this method starts the game.
         Game game = new Game();
+        game.initAnimal();
         game.initFood();
         game.initActivities();
         game.showAllFoods();
