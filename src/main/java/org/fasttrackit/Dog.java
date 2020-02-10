@@ -21,7 +21,7 @@ public class Dog extends Animal {
         this.dogBreed = dogBreed;
     }
 
-    public boolean isBites() {
+    public boolean getBites() {
         return bites;
     }
 
@@ -29,7 +29,7 @@ public class Dog extends Animal {
         this.bites = bites;
     }
 
-    public boolean isNeedsAWalk() {
+    public boolean getNeedsAWalk() {
         return needsAWalk;
     }
 

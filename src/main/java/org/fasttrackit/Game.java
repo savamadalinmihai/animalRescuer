@@ -14,6 +14,7 @@ public class Game {
     Rescuer rescuer;
     Dog dog;
     Veterinarian veterinarian;
+    Random random = new Random();
 
 
     public Game(String name, int durationInMinutes, boolean toysRequired) {
@@ -23,32 +24,62 @@ public class Game {
     }
 
     public Game() {
-
     }
 
-    private void initAnimal(){
-        Animal animal = new Dog("Bonnie", false);
-        dog.setBites(false);
-        dog.setNeedsAWalk(true);
+    public void requireFeeding() {
+        // this method requires the user to feed the animal
+        try {
+        for (int i = 1; i < (availableFood.size()+1); i++) {
+            System.out.println("Food number " + i + " is: " + availableFood.get(i-1).getName());
+        }
+           }catch (IndexOutOfBoundsException e){
+           }
+        System.out.println("");
+
+        System.out.println("Choose the number of the food you want to give your pet.");
+        Scanner scanner = new Scanner(System.in);
+        int selectedFood = scanner.nextInt();
+
+        rescuer.feedAnimal(rescuer.rescuer, dog, availableFood.get(selectedFood-1));
     }
 
-    private void initRescuer(){
+    private void initAnimal() {
+        // this method creates a default animal in the game, that can be rescued.
+        Dog dog = new Dog("Bonnie", false);
+        dog.setBites(random.nextBoolean());
+        dog.setNeedsAWalk(random.nextBoolean());
+    }
+
+    private void initRescuer() {
+        // this method creates a rescuer characters and gives it a name.
         System.out.println("Please enter the name of your rescuer character:");
 
         Scanner scanner = new Scanner(System.in);
         String rescuerName = scanner.nextLine();
 
-        if (rescuerName.isEmpty()){
-        System.out.println("You entered nothing. Try again.");
-        initRescuer();
+        if (rescuerName.isEmpty()) {
+            System.out.println("You entered nothing. Try again.");
+            initRescuer();
         }
-
         Rescuer rescuer = new Rescuer();
         rescuer.setName(rescuerName);
+
+        System.out.println("Great! Your character's name will be: " + rescuerName);
     }
 
-    private void nameAnimal(){
-        
+    private void nameAnimal() {
+        // this method names the animal you just rescued.
+        System.out.println("Now, please enter the name you want to give to your rescued animal:");
+
+        Scanner scanner = new Scanner(System.in);
+        String animalName = scanner.nextLine();
+
+        if (animalName.isEmpty()) {
+            System.out.println("You must give your pet a name.");
+            nameAnimal();
+        }
+
+        System.out.println("Awesome! Your pet's name will be: " + animalName);
     }
 
     private void initFood() {
@@ -86,7 +117,7 @@ public class Game {
             activities.setHappinessIncrease(getHappinessIncrease());
             availableActivities[z] = activities;
 
-            System.out.println("Activity " + z + " was created. It's called " + activities.getName()
+            System.out.println("Activity " + (z + 1) + " was created. It's called " + activities.getName()
                     + ", and has a happiness increase of " + activities.getHappinessIncrease() + ".");
         }
     }
@@ -105,9 +136,10 @@ public class Game {
 
     private void showAllFoods() {
         // this method prints all the availableFood objects from the availableFood array.
+        System.out.println("The list of all available foods is: ");
         for (int i = 0; i < availableFood.size(); i++) {
             if (availableFood != null)
-                System.out.println("Food number " + i + " is " + availableFood.get(i).getName());
+                System.out.println("Food number " + (i + 1) + " is " + (availableFood.get(i).getName()));
         }
     }
 
@@ -163,12 +195,30 @@ public class Game {
 
     public void start() {
         //this method starts the game.
+
+        System.out.println("Hi! This is the start of the game.");
+        System.out.println("");
+        System.out.println("We'll begin by creating your rescuer character.");
+        System.out.println("");
         Game game = new Game();
+        game.initRescuer();
         game.initAnimal();
+        System.out.println("");
+        game.nameAnimal();
+        System.out.println("");
         game.initFood();
+        System.out.println("");
         game.initActivities();
+        System.out.println("");
         game.showAllFoods();
+        System.out.println("");
         game.showAllActivities();
+        System.out.println("");
+        game.requireFeeding();
+    }
+
+    public String toString(){
+        return String.valueOf(availableFood);
     }
 
     public static void main(String[] args) {
