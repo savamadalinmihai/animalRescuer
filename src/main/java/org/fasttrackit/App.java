@@ -8,6 +8,7 @@ public class App
 
         Game game = new Game();
         game.start();
+        game.gameLogic();
 
 
 //        Activities Activity01 = new Activities("Fetch", 15, 3);

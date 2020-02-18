@@ -15,6 +15,7 @@ public class Game {
     Dog dog;
     Veterinarian veterinarian;
     Random random = new Random();
+    Game game;
 
 
     public Game(String name, int durationInMinutes, boolean toysRequired) {
@@ -26,28 +27,103 @@ public class Game {
     public Game() {
     }
 
-    public void requireFeeding() {
-        // this method requires the user to feed the animal
-        try {
-        for (int i = 1; i < (availableFood.size()+1); i++) {
-            System.out.println("Food number " + i + " is: " + availableFood.get(i-1).getName());
+    public void startAnotherRound(){
+        System.out.println("You successfully passed this round.");
+        System.out.println("Now, keep playing with and feeding the animal, in order to win.");
+        System.out.println("");
+        System.out.println("Your goal is to keep happiness & energy levels as high as possible and hunger as low" +
+                " as possible");
+        System.out.println("");
+        System.out.println("So far, " + dog.getName() + "'s stats are as follows: ");
+        System.out.println("Hunger level: " + dog.getHungerLevel() + "/10.");
+        System.out.println("Happiness level: " + dog.getHappinessLevel() + "/10.");
+        System.out.println("Energy level: " + dog.getEnergyLevel() + "/10.");
+        System.out.println("");
+        game.showAllFoods();
+        System.out.println("");
+        game.requireFeeding();
+        System.out.println("");
+        game.showAllActivities();
+        System.out.println("");
+        game.requirePlaying();
+
+        System.out.println(dog.getName() + "");
+    }
+
+    public void gameLogic() {
+        int counter = 0;
+
+        if (counter > 3 && dog.getHappinessLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
+            System.out.println("Congratulations. You successfully finished 5 rounds and completed the game!");
+            System.out.println("YOU WON!!!");
+            return;
         }
-           }catch (IndexOutOfBoundsException e){
-           }
+
+        while (dog.getHungerLevel() < 10 | dog.getHappinessLevel() > 0 | dog.getEnergyLevel() > 0) {
+            startAnotherRound();
+            counter++;
+        }
+        if (dog.getHungerLevel() > 10) {
+            System.out.println("Your dog became too hungry and died.");
+            System.out.println("");
+            System.out.println("GAME OVER");
+        } else if (dog.getHappinessLevel() < 0) {
+            System.out.println("Your dog became depressed and died");
+            System.out.println("");
+            System.out.println("GAME OVER");
+        } else if (dog.getEnergyLevel() < 0) {
+            System.out.println("Your dog became depleted of energy and died");
+            System.out.println("");
+            System.out.println("GAME OVER");
+        }
+    }
+
+    public void requireFeeding() {
+        // this method requires the user to feed the animal.
+
+        try {
+            for (int i = 1; i < (availableFood.size() + 1); i++) {
+                System.out.println("Food number " + i + " is: " + availableFood.get(i - 1).getName());
+            }
+        } catch (IndexOutOfBoundsException e) {
+        }
         System.out.println("");
 
         System.out.println("Choose the number of the food you want to give your pet.");
         Scanner scanner = new Scanner(System.in);
         int selectedFood = scanner.nextInt();
 
-        rescuer.feedAnimal(rescuer.rescuer, dog, availableFood.get(selectedFood-1));
+        rescuer.feedAnimal(rescuer, dog, availableFood.get(selectedFood - 1));
+    }
+
+    public void requirePlaying() {
+        // this method requires the user to play/have an activity with the animal.
+        // secondly, this method also allows for animal to be fed in next rounds.
+        try {
+            for (int i = 1; i < availableActivities.length; i++) {
+                System.out.println("Activity " + i + ": " + availableActivities[i - 1].getName());
+            }
+        } catch (IndexOutOfBoundsException | NullPointerException e) {
+        }
+        System.out.println("");
+
+        System.out.println("Choose the number of the activity you want to have with the animal.");
+        Scanner scanner = new Scanner(System.in);
+        int selectedActivity = scanner.nextInt();
+
+        rescuer.playWithAnimal(dog, availableActivities[selectedActivity - 1]);
     }
 
     private void initAnimal() {
         // this method creates a default animal in the game, that can be rescued.
-        Dog dog = new Dog("Bonnie", false);
+        String dogName = nameAnimal();
+
+        dog = new Dog(dogName, false);
         dog.setBites(random.nextBoolean());
         dog.setNeedsAWalk(random.nextBoolean());
+        dog.setEnergyLevel(5);
+        dog.setHappinessLevel(5);
+        dog.setHungerLevel(5);
     }
 
     private void initRescuer() {
@@ -61,13 +137,13 @@ public class Game {
             System.out.println("You entered nothing. Try again.");
             initRescuer();
         }
-        Rescuer rescuer = new Rescuer();
+        rescuer = new Rescuer();
         rescuer.setName(rescuerName);
 
         System.out.println("Great! Your character's name will be: " + rescuerName);
     }
 
-    private void nameAnimal() {
+    private String nameAnimal() {
         // this method names the animal you just rescued.
         System.out.println("Now, please enter the name you want to give to your rescued animal:");
 
@@ -80,6 +156,7 @@ public class Game {
         }
 
         System.out.println("Awesome! Your pet's name will be: " + animalName);
+        return animalName;
     }
 
     private void initFood() {
@@ -139,7 +216,8 @@ public class Game {
         System.out.println("The list of all available foods is: ");
         for (int i = 0; i < availableFood.size(); i++) {
             if (availableFood != null)
-                System.out.println("Food number " + (i + 1) + " is " + (availableFood.get(i).getName()));
+                System.out.println("Food number " + (i + 1) + ": " + (availableFood.get(i).getName())
+                        + "(" + availableFood.get(i).getPrice() + "$/kg.");
         }
     }
 
@@ -193,31 +271,34 @@ public class Game {
         }
     }
 
-    public void start() {
+    public Game start() {
         //this method starts the game.
-
+        game = new Game();
         System.out.println("Hi! This is the start of the game.");
         System.out.println("");
         System.out.println("We'll begin by creating your rescuer character.");
         System.out.println("");
-        Game game = new Game();
         game.initRescuer();
-        game.initAnimal();
         System.out.println("");
-        game.nameAnimal();
+        game.initAnimal();
         System.out.println("");
         game.initFood();
         System.out.println("");
         game.initActivities();
         System.out.println("");
-        game.showAllFoods();
-        System.out.println("");
-        game.showAllActivities();
+        System.out.println("Your pet was just rescued and needs feeding. Choose from below: ");
         System.out.println("");
         game.requireFeeding();
+        System.out.println("");
+        System.out.println("In order to bond with your pet, you need to do an activity together:");
+        System.out.println("The available activities are as follows:");
+        System.out.println("");
+        game.requirePlaying();
+        game.gameLogic();
+        return game;
     }
 
-    public String toString(){
+    public String toString() {
         return String.valueOf(availableFood);
     }
 

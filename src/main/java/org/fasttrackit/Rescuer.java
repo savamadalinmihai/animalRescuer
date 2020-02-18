@@ -117,7 +117,9 @@ public class Rescuer {
             animal.setEnergyLevel(animal.getEnergyLevel() + 1);
         }
 
-        System.out.println("The new energy level of the " + animal.getName() + " is: " + animal.getEnergyLevel() +
+        System.out.println("");
+
+        System.out.println("The new energy level of " + animal.getName() + " is: " + animal.getEnergyLevel() +
                 " and the new happiness level is: " +animal.getHappinessLevel());
     }
 
