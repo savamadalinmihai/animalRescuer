@@ -28,6 +28,7 @@ public class Game {
     }
 
     public void startAnotherRound(){
+        // this method starts another round.
         System.out.println("You successfully passed this round.");
         System.out.println("Now, keep playing with and feeding the animal, in order to win.");
         System.out.println("");
@@ -51,6 +52,9 @@ public class Game {
     }
 
     public void gameLogic() {
+        // this method checks animal's health/hunger/happiness levels and
+        // if they are within safe levels, allows the user to play another round.
+        // in case the user played 3 successful rounds without the animal dying, it ends the game with a win.
         int counter = 0;
 
         if (counter > 3 && dog.getHappinessLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
