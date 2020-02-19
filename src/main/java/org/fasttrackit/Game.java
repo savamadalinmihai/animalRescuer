@@ -1,5 +1,8 @@
 package org.fasttrackit;
 
+import com.sun.deploy.security.SelectableSecurityManager;
+import jdk.internal.util.xml.impl.Input;
+
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -17,6 +20,8 @@ public class Game {
     Random random = new Random();
     Game game;
 
+    int counter = 0;
+
 
     public Game(String name, int durationInMinutes, boolean toysRequired) {
         this.name = name;
@@ -27,8 +32,9 @@ public class Game {
     public Game() {
     }
 
-    public void startAnotherRound(){
-        // this method starts another round.
+    public void startAnotherRound() {
+        // this method starts another round and monitors how many rounds have been played.
+
         System.out.println("You successfully passed this round.");
         System.out.println("Now, keep playing with and feeding the animal, in order to win.");
         System.out.println("");
@@ -40,33 +46,28 @@ public class Game {
         System.out.println("Happiness level: " + dog.getHappinessLevel() + "/10.");
         System.out.println("Energy level: " + dog.getEnergyLevel() + "/10.");
         System.out.println("");
-        game.showAllFoods();
         System.out.println("");
-        game.requireFeeding();
+        requireFeeding();
         System.out.println("");
-        game.showAllActivities();
+        showAllActivities();
         System.out.println("");
-        game.requirePlaying();
+        requirePlaying();
 
-        System.out.println(dog.getName() + "");
+        counter++;
     }
 
     public void gameLogic() {
         // this method checks animal's health/hunger/happiness levels and
         // if they are within safe levels, allows the user to play another round.
         // in case the user played 3 successful rounds without the animal dying, it ends the game with a win.
-        int counter = 0;
 
-        if (counter > 3 && dog.getHappinessLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
+        // this condition checks to see if the user has won or not
+        if (counter > 3 && dog.getHungerLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
             System.out.println("Congratulations. You successfully finished 5 rounds and completed the game!");
             System.out.println("YOU WON!!!");
             return;
         }
 
-        while (dog.getHungerLevel() < 10 | dog.getHappinessLevel() > 0 | dog.getEnergyLevel() > 0) {
-            startAnotherRound();
-            counter++;
-        }
         if (dog.getHungerLevel() > 10) {
             System.out.println("Your dog became too hungry and died.");
             System.out.println("");
@@ -80,6 +81,11 @@ public class Game {
             System.out.println("");
             System.out.println("GAME OVER");
         }
+
+        // this condition allows for the game to go on for a maximum of three rounds, unless the dog is dead
+        if (counter < 10 && dog.getHungerLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
+            startAnotherRound();
+        }
     }
 
     public void requireFeeding() {
@@ -89,15 +95,20 @@ public class Game {
             for (int i = 1; i < (availableFood.size() + 1); i++) {
                 System.out.println("Food number " + i + " is: " + availableFood.get(i - 1).getName());
             }
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException | InputMismatchException e) {
         }
         System.out.println("");
 
         System.out.println("Choose the number of the food you want to give your pet.");
         Scanner scanner = new Scanner(System.in);
-        int selectedFood = scanner.nextInt();
 
-        rescuer.feedAnimal(rescuer, dog, availableFood.get(selectedFood - 1));
+        try {
+            int selectedFood = scanner.nextInt();
+            rescuer.feedAnimal(rescuer, dog, availableFood.get(selectedFood - 1));
+        } catch (IndexOutOfBoundsException | NullPointerException | InputMismatchException e) {
+        }
+        System.out.println("You can only select from the given numbers.");
+
     }
 
     public void requirePlaying() {
@@ -107,15 +118,20 @@ public class Game {
             for (int i = 1; i < availableActivities.length; i++) {
                 System.out.println("Activity " + i + ": " + availableActivities[i - 1].getName());
             }
-        } catch (IndexOutOfBoundsException | NullPointerException e) {
+        } catch (IndexOutOfBoundsException | NullPointerException | InputMismatchException e) {
         }
         System.out.println("");
 
         System.out.println("Choose the number of the activity you want to have with the animal.");
         Scanner scanner = new Scanner(System.in);
-        int selectedActivity = scanner.nextInt();
 
-        rescuer.playWithAnimal(dog, availableActivities[selectedActivity - 1]);
+        try {
+            int selectedActivity = scanner.nextInt();
+            rescuer.playWithAnimal(dog, availableActivities[selectedActivity - 1]);
+        } catch (IndexOutOfBoundsException | NullPointerException | InputMismatchException e) {
+        }
+        System.out.println("Choose from the numbers available on screen.");
+
     }
 
     private void initAnimal() {
@@ -275,7 +291,7 @@ public class Game {
         }
     }
 
-    public Game start() {
+    public void start() {
         //this method starts the game.
         game = new Game();
         System.out.println("Hi! This is the start of the game.");
@@ -299,7 +315,6 @@ public class Game {
         System.out.println("");
         game.requirePlaying();
         game.gameLogic();
-        return game;
     }
 
     public String toString() {
