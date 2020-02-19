@@ -61,28 +61,33 @@ public class Game {
         // if they are within safe levels, allows the user to play another round.
         // in case the user played 3 successful rounds without the animal dying, it ends the game with a win.
 
-        // this condition checks to see if the user has won or not
-        if (counter > 3 && dog.getHungerLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
-            System.out.println("Congratulations. You successfully finished 5 rounds and completed the game!");
-            System.out.println("YOU WON!!!");
-        }
 
-        if (dog.getHungerLevel() > 10) {
-            System.out.println("Your dog became too hungry and died.");
-            System.out.println("");
-            System.out.println("GAME OVER");
-        } else if (dog.getHappinessLevel() < 0) {
-            System.out.println("Your dog became depressed and died");
-            System.out.println("");
-            System.out.println("GAME OVER");
-        } else if (dog.getEnergyLevel() < 0) {
-            System.out.println("Your dog became depleted of energy and died");
-            System.out.println("");
-            System.out.println("GAME OVER");
-        }
 
         // this condition allows for the game to go on for a maximum of three rounds, unless the dog is dead
         while (counter < 10 && dog.getHungerLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
+
+            // this condition checks to see if the user has won or not
+            if (counter > 3 && dog.getHungerLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
+                System.out.println("Congratulations. You successfully finished 5 rounds and completed the game!");
+                System.out.println("YOU WON!!!");
+                break;
+            }
+
+            // this condition tells the player that the pet died.
+            if (dog.getHungerLevel() > 10) {
+                System.out.println("Your pet became too hungry and died.");
+                System.out.println("");
+                System.out.println("GAME OVER");
+            } else if (dog.getHappinessLevel() < 0) {
+                System.out.println("Your pet became depressed and died");
+                System.out.println("");
+                System.out.println("GAME OVER");
+            } else if (dog.getEnergyLevel() < 0) {
+                System.out.println("Your pet became depleted of energy and died");
+                System.out.println("");
+                System.out.println("GAME OVER");
+            }
+
             startAnotherRound();
         }
     }
