@@ -65,7 +65,6 @@ public class Game {
         if (counter > 3 && dog.getHungerLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
             System.out.println("Congratulations. You successfully finished 5 rounds and completed the game!");
             System.out.println("YOU WON!!!");
-            return;
         }
 
         if (dog.getHungerLevel() > 10) {
@@ -83,7 +82,7 @@ public class Game {
         }
 
         // this condition allows for the game to go on for a maximum of three rounds, unless the dog is dead
-        if (counter < 10 && dog.getHungerLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
+        while (counter < 10 && dog.getHungerLevel() < 10 && dog.getHappinessLevel() > 0 && dog.getEnergyLevel() > 0) {
             startAnotherRound();
         }
     }
